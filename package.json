@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "qrious": "^4.0.2",
+    "reactstrap": "^9.2.0"
+  }
+}
