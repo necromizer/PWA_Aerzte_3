@@ -1,0 +1,5 @@
+﻿.idiv {
+    display:flex;
+    flex: 3 0 auto;
+    justify-content: space-between;
+}

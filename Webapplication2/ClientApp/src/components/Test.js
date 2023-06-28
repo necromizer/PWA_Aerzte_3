@@ -1,65 +1,82 @@
 import React, { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import './PWA.css';
 
 export function UITabs() {
-    const [activeTab, setActiveTab] = useState('1');
-    const [tabs, setTabs] = useState([
-        {
-            title: 'First Tab',
-            content: (
-                <img
-                    src="https://picsum.photos/200"
-                    alt="Random Placeholder Image"
-                />
-            ),
-            id: '1'
-        }
-    ]);
-    const toggle = tab => {
-        if (activeTab !== tab) setActiveTab(tab);
-    };
 
-    const addNewTab = () => {
-        const newTabIndex = tabs.length + 1;
-        const newTabs = [
-            ...tabs,
-            {
-                title: `Tab ${newTabIndex}`,
-                content: `This is Tab ${newTabIndex}.`,
-                id: `${newTabIndex}`
-            }
-        ];
-        setTabs(newTabs);
-        setActiveTab(`${newTabIndex}`);
-    };
 
     return (
-        <div>
-            <Nav tabs>
-                {tabs.map(tab => (
-                    <NavItem key={tab.id}>
-                        <NavLink
-                            className={activeTab === tab.id ? 'active' : ''}
-                            onClick={() => toggle(tab.id)}
-                        >
-                            {tab.title}
-                        </NavLink>
-                    </NavItem>
-                ))}
-                <NavItem>
-                    <button onClick={addNewTab}>+</button>
-                </NavItem>
-            </Nav>
-            <TabContent activeTab={activeTab}>
-                {tabs.map(tab => (
-                    <TabPane key={tab.id} tabId={tab.id}>
-                        {tab.content}
-                    </TabPane>
-                ))}
-            </TabContent>
+
+        <div className={'idiv'}>
+            <button>hello</button>
+            <button>hello</button>
         </div>
+
+
     );
-};
+}
+
+
+
+
+//    const [activeTab, setActiveTab] = useState('1');
+//    const [tabs, setTabs] = useState([
+//        {
+//            title: 'First Tab',
+//            content: (
+//                <img
+//                    src="https://picsum.photos/200"
+//                    alt="Random Placeholder Image"
+//                />
+//            ),
+//            id: '1'
+//        }
+//    ]);
+//    const toggle = tab => {
+//        if (activeTab !== tab) setActiveTab(tab);
+//    };
+
+//    const addNewTab = () => {
+//        const newTabIndex = tabs.length + 1;
+//        const newTabs = [
+//            ...tabs,
+//            {
+//                title: `Tab ${newTabIndex}`,
+//                content: `This is Tab ${newTabIndex}.`,
+//                id: `${newTabIndex}`
+//            }
+//        ];
+//        setTabs(newTabs);
+//        setActiveTab(`${newTabIndex}`);
+//    };
+
+//    return (
+//        <div>
+//            <Nav tabs>
+//                {tabs.map(tab => (
+//                    <NavItem key={tab.id}>
+//                        <NavLink
+//                            className={activeTab === tab.id ? 'active' : ''}
+//                            onClick={() => toggle(tab.id)}
+//                        >
+//                            {tab.title}
+//                        </NavLink>
+//                    </NavItem>
+//                ))}
+//                <NavItem>
+//                    <button onClick={addNewTab}>+</button>
+//                </NavItem>
+//            </Nav>
+//            <TabContent activeTab={activeTab}>
+//                {tabs.map(tab => (
+//                    <TabPane key={tab.id} tabId={tab.id}>
+//                        {tab.content}
+//                    </TabPane>
+//                ))}
+//            </TabContent>
+//        </div>
+//    );
+
 
 {/*    {isQrActive ? <div id='box'>*/ }
 {/*        <QrReader*/ }

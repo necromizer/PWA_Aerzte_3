@@ -12,7 +12,7 @@ import * as QRious from "qrious";
 //storage geht mit window.localStorage. (key, setItem, GetItem, removeItem, clear, )
 
 
-export function Counter() {
+export function UITest() {
 
 
     const [data, setData] = useState('No Result');
@@ -42,8 +42,9 @@ export function Counter() {
                         onResult={(result, error) => {
                             if (!!result) {
                                 setTemp(result?.text);
+                                saveQR(temp);
                             } if (!!error) {
-                                console.info(error);
+                                console.info();
                             }
                         }} />
         </div>
@@ -51,24 +52,22 @@ export function Counter() {
             onClick={() => {
                 setScanClicked(true);
             }}
-             color = "success" type = "button" size = "lg" block = 'true'
+            color="success" type="button" size="lg" block={true}
         >scan</Button>
             <Button
             onClick={() => {
                 setIsClicked(true);
                 setData(temp);
                 console.log('success');
-                }}
-                color="success" type="button" size="lg" block='true'
+            }}
+            color="success" type="button" size="lg" block={true}
         >Create</Button>
         <div style={{ marginLeft: sw }}  >
             {/*canvas zeichnet qr-code */}
             <canvas id="qr" ></canvas>
         </div>
         <button onClick={() => {
-            v = v + 1;
-            window.localStorage.setItem('1', data);
-            setSavedV(window.localStorage.getItem('1'));
+            saveQR(temp);
 
         }}
         >save</button>
@@ -112,6 +111,17 @@ function Qr_toImage3(c, d) {
         value: c,
         size: d
     });
+}
+function saveQR(data) {
+
+
+    let keys = Object.keys(window.localStorage);
+    let i = keys.length + 1;
+
+
+    window.localStorage.setItem(i.toString, data);
+    console.log(keys, data);
+
 }
 
 
